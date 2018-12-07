@@ -72,6 +72,14 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "expertise": {
+      "collection": "expertise",
+      "via": "agglomerate"
+    },
+    "expertiseTitle": {
+      "default": "",
+      "type": "string"
     }
   }
 }

@@ -1,0 +1,35 @@
+{
+  "connection": "default",
+  "collectionName": "expertise",
+  "info": {
+    "name": "expertise",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "default": "",
+      "type": "string"
+    },
+    "logo": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "agglomerate": {
+      "model": "agglomerate",
+      "via": "expertise"
+    },
+    "description": {
+      "default": "",
+      "type": "text"
+    },
+    "hashtag": {
+      "default": "",
+      "type": "string"
+    }
+  }
+}

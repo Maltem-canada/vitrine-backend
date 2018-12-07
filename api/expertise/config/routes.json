@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/expertise",
+      "handler": "Expertise.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/expertise/count",
+      "handler": "Expertise.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/expertise/:_id",
+      "handler": "Expertise.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/expertise",
+      "handler": "Expertise.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/expertise/:_id",
+      "handler": "Expertise.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/expertise/:_id",
+      "handler": "Expertise.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
