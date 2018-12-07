@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "jobsboard",
+  "info": {
+    "name": "job",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "description": {
+      "default": "",
+      "type": "string"
+    },
+    "agglomerate": {
+      "model": "agglomerate",
+      "via": "jobs"
+    }
+  }
+}

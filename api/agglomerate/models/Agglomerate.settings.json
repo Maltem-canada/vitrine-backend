@@ -1,0 +1,77 @@
+{
+  "connection": "default",
+  "collectionName": "agglomerate",
+  "info": {
+    "name": "agglomerate",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "benefits": {
+      "collection": "benefit",
+      "via": "agglomerate"
+    },
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "benefitsTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "jobsBoardTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "jobs": {
+      "collection": "job",
+      "via": "agglomerate"
+    },
+    "titleWhite": {
+      "default": "",
+      "type": "string"
+    },
+    "titleRed": {
+      "default": "",
+      "type": "string"
+    },
+    "titleSub": {
+      "default": "",
+      "type": "string"
+    },
+    "address1": {
+      "default": "",
+      "type": "string"
+    },
+    "address2": {
+      "default": "",
+      "type": "string"
+    },
+    "address3": {
+      "default": "",
+      "type": "string"
+    },
+    "phoneNumber": {
+      "default": "",
+      "type": "string"
+    },
+    "email": {
+      "default": "",
+      "type": "string"
+    },
+    "photoWelcome": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "photoJobsBoard": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}
