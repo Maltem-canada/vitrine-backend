@@ -80,6 +80,16 @@
     "expertiseTitle": {
       "default": "",
       "type": "string"
+    },
+    "transition1Photo": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "transition1Text": {
+      "default": "",
+      "type": "string"
     }
   }
 }
