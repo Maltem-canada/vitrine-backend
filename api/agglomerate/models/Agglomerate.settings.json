@@ -90,6 +90,10 @@
     "transition1Text": {
       "default": "",
       "type": "string"
+    },
+    "services": {
+      "collection": "service",
+      "via": "agglomerate"
     }
   }
 }
