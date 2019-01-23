@@ -1,0 +1,31 @@
+{
+  "connection": "default",
+  "collectionName": "benefit",
+  "info": {
+    "name": "philosophy",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "description": {
+      "default": "",
+      "type": "string"
+    },
+    "logo": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "agglomerate": {
+      "model": "agglomerate",
+      "via": "philosophies"
+    },
+    "title": {
+      "default": "",
+      "type": "string"
+    }
+  }
+}

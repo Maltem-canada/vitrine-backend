@@ -1,19 +1,23 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "teammember",
   "info": {
-    "name": "benefit",
+    "name": "teammember",
     "description": ""
   },
   "options": {
     "timestamps": true
   },
   "attributes": {
-    "description": {
+    "name": {
       "default": "",
       "type": "string"
     },
-    "logo": {
+    "position": {
+      "default": "",
+      "type": "string"
+    },
+    "photo": {
       "model": "file",
       "via": "related",
       "plugin": "upload",
@@ -21,7 +25,7 @@
     },
     "agglomerate": {
       "model": "agglomerate",
-      "via": "benefits"
+      "via": "teammembers"
     }
   }
 }

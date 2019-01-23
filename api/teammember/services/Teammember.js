@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Agglomerate.js service
+ * Teammember.js service
  *
  * @description: A set of functions similar to controller's actions to avoid code duplication.
  */
@@ -12,119 +12,114 @@ const _ = require('lodash');
 module.exports = {
 
   /**
-   * Promise to fetch all agglomerates.
+   * Promise to fetch all teammembers.
    *
    * @return {Promise}
    */
 
   fetchAll: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('agglomerate', params);
+    const filters = strapi.utils.models.convertParams('teammember', params);
     // Select field to populate.
-    const populate = Agglomerate.associations
+    const populate = Teammember.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Agglomerate
+    return Teammember
       .find()
       .where(filters.where)
       .sort(filters.sort)
       .skip(filters.start)
       .limit(filters.limit)
-      .populate({
-        path: populate,
-        populate: {
-          path: 'logo photo'
-        }
-      });
+      .populate(populate);
   },
 
   /**
-   * Promise to fetch a/an agglomerate.
+   * Promise to fetch a/an teammember.
    *
    * @return {Promise}
    */
 
   fetch: (params) => {
     // Select field to populate.
-    const populate = Agglomerate.associations
+    const populate = Teammember.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Agglomerate
-      .findOne(_.pick(params, _.keys(Agglomerate.schema.paths)))
+    return Teammember
+      .findOne(_.pick(params, _.keys(Teammember.schema.paths)))
       .populate(populate);
   },
 
   /**
-   * Promise to count agglomerates.
+   * Promise to count teammembers.
    *
    * @return {Promise}
    */
 
   count: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('agglomerate', params);
+    const filters = strapi.utils.models.convertParams('teammember', params);
 
-    return Agglomerate
+    return Teammember
       .count()
       .where(filters.where);
   },
 
   /**
-   * Promise to add a/an agglomerate.
+   * Promise to add a/an teammember.
    *
    * @return {Promise}
    */
 
   add: async (values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Agglomerate.associations.map(ast => ast.alias));
-    const data = _.omit(values, Agglomerate.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Teammember.associations.map(ast => ast.alias));
+    const data = _.omit(values, Teammember.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = await Agglomerate.create(data);
+    const entry = await Teammember.create(data);
 
     // Create relational data and return the entry.
-    return Agglomerate.updateRelations({ _id: entry.id, values: relations });
+    return Teammember.updateRelations({ _id: entry.id, values: relations });
   },
 
   /**
-   * Promise to edit a/an agglomerate.
+   * Promise to edit a/an teammember.
    *
    * @return {Promise}
    */
 
   edit: async (params, values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Agglomerate.associations.map(a => a.alias));
-    const data = _.omit(values, Agglomerate.associations.map(a => a.alias));
+    const relations = _.pick(values, Teammember.associations.map(a => a.alias));
+    const data = _.omit(values, Teammember.associations.map(a => a.alias));
 
     // Update entry with no-relational data.
-    const entry = await Agglomerate.update(params, data, { multi: true });
+    const entry = await Teammember.update(params, data, { multi: true });
 
     // Update relational data and return the entry.
-    return Agglomerate.updateRelations(Object.assign(params, { values: relations }));
+    return Teammember.updateRelations(Object.assign(params, { values: relations }));
   },
 
   /**
-   * Promise to remove a/an agglomerate.
+   * Promise to remove a/an teammember.
    *
    * @return {Promise}
    */
 
   remove: async params => {
     // Select field to populate.
-    const populate = Agglomerate.associations
+    const populate = Teammember.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
     // Note: To get the full response of Mongo, use the `remove()` method
     // or add spent the parameter `{ passRawResult: true }` as second argument.
-    const data = await Agglomerate
+    const data = await Teammember
       .findOneAndRemove(params, {})
       .populate(populate);
 
@@ -133,7 +128,7 @@ module.exports = {
     }
 
     await Promise.all(
-      Agglomerate.associations.map(async association => {
+      Teammember.associations.map(async association => {
         if (!association.via || !data._id) {
           return true;
         }
@@ -154,22 +149,22 @@ module.exports = {
   },
 
   /**
-   * Promise to search a/an agglomerate.
+   * Promise to search a/an teammember.
    *
    * @return {Promise}
    */
 
   search: async (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('agglomerate', params);
+    const filters = strapi.utils.models.convertParams('teammember', params);
     // Select field to populate.
-    const populate = Agglomerate.associations
+    const populate = Teammember.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    const $or = Object.keys(Agglomerate.attributes).reduce((acc, curr) => {
-      switch (Agglomerate.attributes[curr].type) {
+    const $or = Object.keys(Teammember.attributes).reduce((acc, curr) => {
+      switch (Teammember.attributes[curr].type) {
         case 'integer':
         case 'float':
         case 'decimal':
@@ -193,7 +188,7 @@ module.exports = {
       }
     }, []);
 
-    return Agglomerate
+    return Teammember
       .find({ $or })
       .sort(filters.sort)
       .skip(filters.start)

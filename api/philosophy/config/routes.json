@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/benefits",
-      "handler": "Benefit.find",
+      "path": "/philosophies",
+      "handler": "Philosophy.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/benefits/count",
-      "handler": "Benefit.count",
+      "path": "/philosophies/count",
+      "handler": "Philosophy.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/benefits/:_id",
-      "handler": "Benefit.findOne",
+      "path": "/philosophies/:_id",
+      "handler": "Philosophy.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/benefits",
-      "handler": "Benefit.create",
+      "path": "/philosophies",
+      "handler": "Philosophy.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/benefits/:_id",
-      "handler": "Benefit.update",
+      "path": "/philosophies/:_id",
+      "handler": "Philosophy.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/benefits/:_id",
-      "handler": "Benefit.destroy",
+      "path": "/philosophies/:_id",
+      "handler": "Philosophy.destroy",
       "config": {
         "policies": []
       }

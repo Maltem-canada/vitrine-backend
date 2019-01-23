@@ -9,15 +9,11 @@
     "timestamps": true
   },
   "attributes": {
-    "benefits": {
-      "collection": "benefit",
+    "philosophies": {
+      "collection": "philosophy",
       "via": "agglomerate"
     },
     "name": {
-      "default": "",
-      "type": "string"
-    },
-    "benefitsTitle": {
       "default": "",
       "type": "string"
     },
@@ -81,7 +77,7 @@
       "default": "",
       "type": "string"
     },
-    "transition1Photo": {
+    "ourPhilosophyPhoto": {
       "model": "file",
       "via": "related",
       "plugin": "upload",
@@ -94,6 +90,74 @@
     "services": {
       "collection": "service",
       "via": "agglomerate"
+    },
+    "servicesTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "philosophyTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "philosophyLastImage": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "teammembers": {
+      "collection": "teammember",
+      "via": "agglomerate"
+    },
+    "teamTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "address4": {
+      "default": "",
+      "type": "string"
+    },
+    "locationImage": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "welcomeSentence": {
+      "default": "",
+      "type": "string"
+    },
+    "groupTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "headerExpertiseTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "headerServiceTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "headerPhilosophyTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "headerTeamTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "headerJobsTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "headerGroupTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "headerContactTitle": {
+      "default": "",
+      "type": "string"
     }
   }
 }

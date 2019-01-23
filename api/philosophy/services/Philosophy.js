@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Benefit.js service
+ * Philosophy.js service
  *
  * @description: A set of functions similar to controller's actions to avoid code duplication.
  */
@@ -12,21 +12,21 @@ const _ = require('lodash');
 module.exports = {
 
   /**
-   * Promise to fetch all benefits.
+   * Promise to fetch all philosophies.
    *
    * @return {Promise}
    */
 
   fetchAll: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('benefit', params);
+    const filters = strapi.utils.models.convertParams('philosophy', params);
     // Select field to populate.
-    const populate = Benefit.associations
+    const populate = Philosophy.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Benefit
+    return Philosophy
       .find()
       .where(filters.where)
       .sort(filters.sort)
@@ -36,90 +36,90 @@ module.exports = {
   },
 
   /**
-   * Promise to fetch a/an benefit.
+   * Promise to fetch a/an philosophy.
    *
    * @return {Promise}
    */
 
   fetch: (params) => {
     // Select field to populate.
-    const populate = Benefit.associations
+    const populate = Philosophy.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Benefit
-      .findOne(_.pick(params, _.keys(Benefit.schema.paths)))
+    return Philosophy
+      .findOne(_.pick(params, _.keys(Philosophy.schema.paths)))
       .populate(populate);
   },
 
   /**
-   * Promise to count benefits.
+   * Promise to count philosophies.
    *
    * @return {Promise}
    */
 
   count: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('benefit', params);
+    const filters = strapi.utils.models.convertParams('philosophy', params);
 
-    return Benefit
+    return Philosophy
       .count()
       .where(filters.where);
   },
 
   /**
-   * Promise to add a/an benefit.
+   * Promise to add a/an philosophy.
    *
    * @return {Promise}
    */
 
   add: async (values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Benefit.associations.map(ast => ast.alias));
-    const data = _.omit(values, Benefit.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Philosophy.associations.map(ast => ast.alias));
+    const data = _.omit(values, Philosophy.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = await Benefit.create(data);
+    const entry = await Philosophy.create(data);
 
     // Create relational data and return the entry.
-    return Benefit.updateRelations({ _id: entry.id, values: relations });
+    return Philosophy.updateRelations({ _id: entry.id, values: relations });
   },
 
   /**
-   * Promise to edit a/an benefit.
+   * Promise to edit a/an philosophy.
    *
    * @return {Promise}
    */
 
   edit: async (params, values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Benefit.associations.map(a => a.alias));
-    const data = _.omit(values, Benefit.associations.map(a => a.alias));
+    const relations = _.pick(values, Philosophy.associations.map(a => a.alias));
+    const data = _.omit(values, Philosophy.associations.map(a => a.alias));
 
     // Update entry with no-relational data.
-    const entry = await Benefit.update(params, data, { multi: true });
+    const entry = await Philosophy.update(params, data, { multi: true });
 
     // Update relational data and return the entry.
-    return Benefit.updateRelations(Object.assign(params, { values: relations }));
+    return Philosophy.updateRelations(Object.assign(params, { values: relations }));
   },
 
   /**
-   * Promise to remove a/an benefit.
+   * Promise to remove a/an philosophy.
    *
    * @return {Promise}
    */
 
   remove: async params => {
     // Select field to populate.
-    const populate = Benefit.associations
+    const populate = Philosophy.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
     // Note: To get the full response of Mongo, use the `remove()` method
     // or add spent the parameter `{ passRawResult: true }` as second argument.
-    const data = await Benefit
+    const data = await Philosophy
       .findOneAndRemove(params, {})
       .populate(populate);
 
@@ -128,7 +128,7 @@ module.exports = {
     }
 
     await Promise.all(
-      Benefit.associations.map(async association => {
+      Philosophy.associations.map(async association => {
         if (!association.via || !data._id) {
           return true;
         }
@@ -149,22 +149,22 @@ module.exports = {
   },
 
   /**
-   * Promise to search a/an benefit.
+   * Promise to search a/an philosophy.
    *
    * @return {Promise}
    */
 
   search: async (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('benefit', params);
+    const filters = strapi.utils.models.convertParams('philosophy', params);
     // Select field to populate.
-    const populate = Benefit.associations
+    const populate = Philosophy.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    const $or = Object.keys(Benefit.attributes).reduce((acc, curr) => {
-      switch (Benefit.attributes[curr].type) {
+    const $or = Object.keys(Philosophy.attributes).reduce((acc, curr) => {
+      switch (Philosophy.attributes[curr].type) {
         case 'integer':
         case 'float':
         case 'decimal':
@@ -188,7 +188,7 @@ module.exports = {
       }
     }, []);
 
-    return Benefit
+    return Philosophy
       .find({ $or })
       .sort(filters.sort)
       .skip(filters.start)

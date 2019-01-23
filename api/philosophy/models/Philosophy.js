@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Lifecycle callbacks for the `Benefit` model.
+ * Lifecycle callbacks for the `Philosophy` model.
  */
 
 module.exports = {
