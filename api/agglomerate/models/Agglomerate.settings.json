@@ -165,7 +165,7 @@
       "plugin": "upload",
       "required": false
     },
-    "cursor": {
+    "cursor32x32": {
       "model": "file",
       "via": "related",
       "plugin": "upload",
@@ -176,6 +176,10 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "footerClosure": {
+      "default": "",
+      "type": "string"
     }
   }
 }
