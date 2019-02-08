@@ -158,6 +158,24 @@
     "headerContactTitle": {
       "default": "",
       "type": "string"
+    },
+    "maltemLogo": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "cursor": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "teamProfilePlaceholder": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     }
   }
 }
