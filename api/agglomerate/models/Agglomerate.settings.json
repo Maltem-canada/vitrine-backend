@@ -180,6 +180,22 @@
     "footerClosure": {
       "default": "",
       "type": "string"
+    },
+    "language": {
+      "default": "",
+      "type": "string"
+    },
+    "locationTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "contactTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "languagePlaceholder": {
+      "default": "",
+      "type": "string"
     }
   }
 }
