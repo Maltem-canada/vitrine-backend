@@ -196,6 +196,10 @@
     "languagePlaceholder": {
       "default": "",
       "type": "string"
+    },
+    "library": {
+      "collection": "photo",
+      "via": "agglomerate"
     }
   }
 }
