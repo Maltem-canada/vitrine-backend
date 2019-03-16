@@ -200,6 +200,10 @@
     "library": {
       "collection": "photo",
       "via": "agglomerate"
+    },
+    "PhilosophyLastImageLink": {
+      "default": "",
+      "type": "string"
     }
   }
 }
