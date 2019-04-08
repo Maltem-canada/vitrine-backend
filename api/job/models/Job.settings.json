@@ -13,13 +13,13 @@
       "default": "",
       "type": "string"
     },
-    "description": {
-      "default": "",
-      "type": "text"
-    },
     "agglomerate": {
       "model": "agglomerate",
       "via": "jobs"
+    },
+    "description": {
+      "default": "",
+      "type": "text"
     }
   }
 }
