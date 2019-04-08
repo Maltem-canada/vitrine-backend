@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/filiales",
+      "handler": "Filiale.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/filiales/count",
+      "handler": "Filiale.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/filiales/:_id",
+      "handler": "Filiale.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/filiales",
+      "handler": "Filiale.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/filiales/:_id",
+      "handler": "Filiale.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/filiales/:_id",
+      "handler": "Filiale.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,25 +1,27 @@
 {
   "connection": "default",
-  "collectionName": "jobsboard",
+  "collectionName": "",
   "info": {
-    "name": "job",
+    "name": "filiale",
     "description": ""
   },
   "options": {
     "timestamps": true
   },
   "attributes": {
-    "name": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "link": {
       "default": "",
       "type": "string"
     },
-    "description": {
-      "default": "",
-      "type": "text"
-    },
     "agglomerate": {
       "model": "agglomerate",
-      "via": "jobs"
+      "via": "filiales"
     }
   }
 }

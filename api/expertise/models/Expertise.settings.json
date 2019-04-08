@@ -30,6 +30,12 @@
     "hashtag": {
       "default": "",
       "type": "string"
+    },
+    "logoHover": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     }
   }
 }

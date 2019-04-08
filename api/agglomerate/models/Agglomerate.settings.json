@@ -204,6 +204,10 @@
     "PhilosophyLastImageLink": {
       "default": "",
       "type": "string"
+    },
+    "filiales": {
+      "collection": "filiale",
+      "via": "agglomerate"
     }
   }
 }
